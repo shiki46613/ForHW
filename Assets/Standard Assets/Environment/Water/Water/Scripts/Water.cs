@@ -14,7 +14,6 @@ namespace UnityStandardAssets.Water
             Refractive = 2,
         };
 
-
         public WaterMode waterMode = WaterMode.Refractive;
         public bool disablePixelLights = true;
         public int textureSize = 256;
