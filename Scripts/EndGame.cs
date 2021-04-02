@@ -23,6 +23,7 @@ namespace Something
                 //player.gameObject.SetActive(false);
                 //экран поражения
                 SceneManager.LoadScene(1); //главное меню
+                
             }
 
         }

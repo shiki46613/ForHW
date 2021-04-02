@@ -22,6 +22,7 @@ namespace Something
                 move, movementSpeed * Time.deltaTime, 0f);
             rotation.Normalize();
             rotation = Quaternion.LookRotation(desiredForward);
+            
         }
     }
 }

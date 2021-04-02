@@ -40,6 +40,7 @@ namespace Something
                 }
 
                 Destroy(gameObject);
+                
             }
         }
 
