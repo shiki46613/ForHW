@@ -5,21 +5,23 @@ namespace Something
 {
     public class Starter : MonoBehaviour
     {
-        [SerializeField] private GameObject player;
-        [SerializeField] private float movementSpeed;
-        [SerializeField] private int count;
+        [SerializeField] internal GameObject player;
+        [SerializeField] internal float movementSpeed;
+        [SerializeField] internal int count;
+        [SerializeField] internal Camera cam;
+        internal Vector3 offset;
         private void Start()
         {
-        
+            offset = cam.transform.position - player.transform.position;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            new CharacterMovement(movementSpeed);
+            new CharacterMovement();
             new DeBuff();
             new EndGame();
+            new CameraController();
         }
 
-        
     }
 }

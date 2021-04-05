@@ -9,38 +9,31 @@ using UnityEngine.Events;
 
 namespace Something
 {
-    public class DeBuff : MonoBehaviour
+    public class DeBuff : Starter
     {
-        private string playerTag = "Player";
-        private int count;
         public UnityEvent someEvent;
-        private void OnCollisionEnter(Collision other)
+        void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.CompareTag(playerTag))
+            if (other.gameObject.CompareTag(player.tag))
             {
                 switch (tag)
                 {
                     case "lowSpeed":
-                        //count = Starter movementSpeed / 2;
-                        new CharacterMovement(count);
-                        //someEvent.AddListener();
+                        movementSpeed /= 2;
                         break;
                     case "fastSpeed":
-                        //count = Starter movementSpeed * 2;
-                        new CharacterMovement(count);
-                        //someEvent.AddListener();
+                        movementSpeed *= 2;
                         break;
                     case "death":
-                        other.gameObject.SetActive(false);
+                        player.SetActive(false);
                         //someEvent.AddListener(Camera.main.backgroundColor. );
                         break;
                     case "pointToWin":
-                        //count++;
+                        count++;
                         break;
                 }
 
                 Destroy(gameObject);
-                
             }
         }
 

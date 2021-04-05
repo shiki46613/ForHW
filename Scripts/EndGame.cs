@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 namespace Something
 {
-    public class EndGame
+    public class EndGame : Starter
     {
-        public void WinGame(int count)
+        void WinGame()
         {
             if (count == 9)
             {
@@ -14,16 +14,15 @@ namespace Something
             }
         }
 
-        public void CharacterDeath(int hpCount)
+        void CharacterDeath(int hpCount)
         {
             if (hpCount < 0)
                 hpCount = 0;
             if (hpCount == 0)
             {
-                //player.gameObject.SetActive(false);
+                player.gameObject.SetActive(false);
                 //экран поражения
                 SceneManager.LoadScene(1); //главное меню
-                
             }
 
         }

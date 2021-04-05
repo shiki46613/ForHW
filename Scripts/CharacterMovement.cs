@@ -2,13 +2,12 @@
 
 namespace Something
 {
-    public class CharacterMovement
+    public class CharacterMovement : Starter
     {
-        [SerializeField] private GameObject player;
         private Quaternion rotation = Quaternion.identity;
         private Vector3 move;
 
-        public CharacterMovement(float movementSpeed)
+        internal void CharMovement(float movementSpeed)
         {
             move = player.transform.position;
 
@@ -22,7 +21,6 @@ namespace Something
                 move, movementSpeed * Time.deltaTime, 0f);
             rotation.Normalize();
             rotation = Quaternion.LookRotation(desiredForward);
-            
         }
     }
 }
