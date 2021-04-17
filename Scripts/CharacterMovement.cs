@@ -6,8 +6,8 @@ namespace Something
     {
         private Quaternion rotation = Quaternion.identity;
         private Vector3 move;
-
-        internal void CharMovement(float movementSpeed)
+        
+        internal void CharMovement()
         {
             move = player.transform.position;
 

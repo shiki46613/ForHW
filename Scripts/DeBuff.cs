@@ -12,10 +12,12 @@ namespace Something
     public class DeBuff : Starter
     {
         public UnityEvent someEvent;
-        void OnCollisionEnter(Collision other)
+
+        internal void DeBuffOnCollision()
         {
-            if (other.gameObject.CompareTag(player.tag))
+            void OnCollisionEnter(Collision other)
             {
+                if (!other.gameObject.CompareTag(player.tag)) return;
                 switch (tag)
                 {
                     case "lowSpeed":
@@ -36,6 +38,5 @@ namespace Something
                 Destroy(gameObject);
             }
         }
-
     }
 }
