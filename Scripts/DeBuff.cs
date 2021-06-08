@@ -1,15 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq.Expressions;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Something
 {
-    public class DeBuff : Starter
+    public class DeBuff
     {
         public UnityEvent someEvent;
 
@@ -17,21 +11,21 @@ namespace Something
         {
             void OnCollisionEnter(Collision other)
             {
-                if (!other.gameObject.CompareTag(player.tag)) return;
+                if (!other.gameObject.CompareTag(Starter.player.tag)) return;
                 switch (tag)
                 {
                     case "lowSpeed":
-                        movementSpeed /= 2;
+                        
                         break;
                     case "fastSpeed":
-                        movementSpeed *= 2;
+                        Starter.movementSpeed *= 2;
                         break;
                     case "death":
-                        player.SetActive(false);
+                        Starter.player.SetActive(false);
                         //someEvent.AddListener(Camera.main.backgroundColor. );
                         break;
                     case "pointToWin":
-                        count++;
+                        Starter.count++;
                         break;
                 }
 

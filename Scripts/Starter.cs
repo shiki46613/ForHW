@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using Debug = System.Diagnostics.Debug;
+using UnityEngine.UIElements;
 
 namespace Something
 {
@@ -8,28 +8,25 @@ namespace Something
     {
         internal static GameObject player;
         internal static Camera cam;
-        [SerializeField] internal float movementSpeed;
-        [SerializeField] internal int count;
-        internal Vector3 offset;
+        internal static Vector3 cameraOffset;
 
         
         private void Start()
         {
             player = GameObject.FindWithTag("Player");
             cam = Camera.main;
-            offset = cam.transform.position - player.transform.position;
+            cameraOffset = cam.transform.position - player.transform.position;
         }
         
-        // private void FixedUpdate()
-        // {
-        //     DeBuff();
-        //     CharacterMovement();
-        //     CameraController();
-        //     EndGame();
-        //     
-        // }
-
-
-       
+        private void FixedUpdate()
+        {
+            //DeBuff();
+            // CharacterMovement();
+            // CameraController();
+            //EndGame();
+            
+        }
+        
     }
+    
 }

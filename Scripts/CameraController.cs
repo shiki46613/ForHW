@@ -2,11 +2,11 @@
 
 namespace Something
 {
-    public class CameraController : Starter
+    public class CameraController
     {
         public CameraController()
         {
-            cam.transform.position = player.transform.position + offset;
+            Starter.cam.transform.position = Starter.player.transform.position + Starter.offset;
         }
         
     }

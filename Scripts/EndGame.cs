@@ -3,24 +3,24 @@ using UnityEngine.SceneManagement;
 
 namespace Something
 {
-    public class EndGame : Starter
+    public class EndGame : IEndGame
     {
-        void WinGame()
+        void IEndGame.WinGame()
         {
-            if (count == 9)
+            if (Starter.count == 9)
             {
                 //экран победы
                 SceneManager.LoadScene(1); //главное меню
             }
         }
 
-        void CharacterDeath(int hpCount)
+        void IEndGame.CharacterDeath(int hpCount)
         {
             if (hpCount < 0)
                 hpCount = 0;
             if (hpCount == 0)
             {
-                player.gameObject.SetActive(false);
+                Starter.player.gameObject.SetActive(false);
                 //экран поражения
                 SceneManager.LoadScene(1); //главное меню
             }

@@ -2,14 +2,14 @@
 
 namespace Something
 {
-    public class CharacterMovement : Starter
+    public class CharacterMovement
     {
         private Quaternion rotation = Quaternion.identity;
         private Vector3 move;
         
         internal void CharMovement()
         {
-            move = player.transform.position;
+            move = Starter.player.transform.position;
 
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
@@ -17,8 +17,8 @@ namespace Something
             move.Set(horizontal, 0f, vertical);
             move.Normalize();
 
-            Vector3 desiredForward = Vector3.RotateTowards(player.transform.forward,
-                move, movementSpeed * Time.deltaTime, 0f);
+            Vector3 desiredForward = Vector3.RotateTowards(Starter.player.transform.forward,
+                move, Starter.movementSpeed * Time.deltaTime, 0f);
             rotation.Normalize();
             rotation = Quaternion.LookRotation(desiredForward);
         }
